@@ -9,7 +9,6 @@ RUN npm install
 
 # Add the files to arm image
 FROM arm32v6/node:12-alpine
-RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
