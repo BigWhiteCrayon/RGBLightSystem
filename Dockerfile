@@ -1,6 +1,6 @@
 # Fetch node_modules for backend, nothing here except 
 # the node_modules dir ends up in the final image
-FROM node:8.14.0-alpine as builder
+FROM node:12-alpine as builder
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
@@ -8,7 +8,7 @@ COPY package.json /app/package.json
 RUN npm install
 
 # Add the files to arm image
-FROM arm32v6/node:8.14.0-alpine
+FROM arm32v6/node:12-alpine
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
