@@ -2,6 +2,6 @@ const express = require('express')
 const app = express()
 const port = 80
 
-app.get('/', (req, res) => res.send('this is a test'))
+app.get('/', (req, res) => res.send('this is a different test'))
 
 app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`))
