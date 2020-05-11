@@ -1,0 +1,12 @@
+{
+  "name": "rgblightsystem",
+  "version": "1.0.0",
+  "description": "An RGB light system for our living room. kind of it honestly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "author": "Jordan Youngberg",
+  "license": "ISC"
+}
