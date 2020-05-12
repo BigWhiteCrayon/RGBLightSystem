@@ -1,5 +1,4 @@
 FROM arm32v6/node:12-alpine
-RUN apt-get install && apt-get update
 WORKDIR /app
 RUN mkdir /app
 RUN npm install
