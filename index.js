@@ -2,11 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ip = require('ip');
 const hbs = require('express-handlebars');
-const Gpio = require('onoff').Gpio;
+const Gpio = require('pigpio').Gpio;
 
-let red = new Gpio(27, {mode: Gpio.OUTPUT});
-let green = new Gpio(17, {mode: Gpio.OUTPUT});
-let blue = new Gpio(22, {mode: Gpio.OUTPUT});
+let red = new Gpio(27, {mode:Gpio.OUTPUT});
+let green = new Gpio(17, {mode:Gpio.OUTPUT});
+let blue = new Gpio(22, {mode:Gpio.OUTPUT});
 
 const app = express();
 const port = 80;
