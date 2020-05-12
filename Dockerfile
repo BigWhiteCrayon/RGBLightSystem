@@ -1,6 +1,6 @@
 FROM arm32v6/node:12-alpine
-WORKDIR /app
 RUN mkdir /app
+WORKDIR /app
 RUN npm install
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
