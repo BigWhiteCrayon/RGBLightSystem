@@ -5,6 +5,7 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
+RUN apt-get install python3
 RUN npm install
 
 # Add the files to arm image
