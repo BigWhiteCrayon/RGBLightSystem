@@ -1,11 +1,12 @@
-FROM node:8.14.0-alpine as builder
+FROM node:12-alpine as builder
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
+RUN apk add --update python
 RUN npm install
 
-FROM arm32v6/node:8.14.0-alpine
+FROM arm32v6/node:12-alpine
 RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
