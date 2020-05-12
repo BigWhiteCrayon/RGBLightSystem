@@ -5,7 +5,8 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
-RUN apt-get update && apt-get install -y && apt-get install pigpio
+RUN apt-get update && apt-get install -y 
+RUN apt-get install pigpio
 RUN npm install
 
 # Add the files to arm image
