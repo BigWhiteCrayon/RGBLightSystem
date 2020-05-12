@@ -3,7 +3,7 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
-RUN apk add --update python
+RUN apk add --update python && apk add --update py-pip
 RUN pip install pigpio
 RUN npm install
 
