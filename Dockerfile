@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN apk add --update python
-RUN apk add --update pigpio
+RUN pip install pigpio
 RUN npm install
 
 FROM arm32v6/node:12-alpine
