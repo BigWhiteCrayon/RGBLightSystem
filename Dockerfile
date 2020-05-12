@@ -9,6 +9,7 @@ RUN npm install
 FROM arm32v6/node:12-alpine
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
+RUN apk add --no-cache bash
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
