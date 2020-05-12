@@ -5,14 +5,15 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
-RUN apt-get update && apt-get install -y 
-RUN apt-get install pigpio
 RUN npm install
 
 # Add the files to arm image
 FROM arm32v6/node:12-alpine
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
+
+RUN apt-get update && apt-get install -y 
+RUN apt-get install pigpio
 
 # Same as earlier, be specific or copy everything
 ADD package.json /app/package.json
