@@ -9,8 +9,8 @@ RUN npm install
 FROM arm32v6/node:12-alpine
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
-RUN apk update && apk add python3
-RUN pip3 install pigpio
+RUN apk update && apk add py-pip
+RUN pip install pigpio
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
