@@ -1,5 +1,4 @@
 FROM arm32v6/node:12-alpine
-RUN mkdir /app
 WORKDIR /app
 RUN npm install
 ADD package.json /app/package.json
