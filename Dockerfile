@@ -11,7 +11,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
-RUN apk add --no-cache git 
+#RUN apk add --no-cache git 
 RUN apk add --no-cache build-base
 
 RUN git clone https://github.com/joan2937/pigpio/
