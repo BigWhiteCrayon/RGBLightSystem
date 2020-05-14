@@ -4,6 +4,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN npm install
+RUN apt-get install pigpio
 
 FROM arm32v6/node:12-alpine
 WORKDIR /app
@@ -11,17 +12,8 @@ ENV PATH /app/node_modules/.bin:$PATH
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
-#RUN apk add --no-cache git 
-RUN apk add --no-cache build-base
 
-RUN git clone https://github.com/joan2937/pigpio/
-RUN unzip master.zip
-RUN cd pigpio-master
-RUN make
-RUN make install
-
-COPY --from=builder /app/node_modules /app/node_modules
-
+COPY --from=builder . .
 
 ENV PORT = 80
 EXPOSE 80
