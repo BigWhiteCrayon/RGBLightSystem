@@ -7,8 +7,8 @@ RUN npm install
 RUN wget https://github.com/joan2937/pigpio/archive/master.zip
 RUN unzip master.zip
 RUN cd pigpio-master
-RUN make
-RUN sudo make install
+RUN make MakeFile
+RUN make install
 
 FROM arm32v6/node:12-alpine
 WORKDIR /app
