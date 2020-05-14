@@ -5,9 +5,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN npm install
 RUN git clone https://github.com/joan2937/pigpio
-RUN cd pigpio
-RUN make 
-RUN make install
+RUN cd pigpio && make && make install
 
 FROM arm32v6/node:12-alpine
 WORKDIR /app
