@@ -11,7 +11,9 @@ ENV PATH /app/node_modules/.bin:$PATH
 ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
-RUN apt update && apt add --no-cache wget && apt add --no-cache build-base
+RUN apt update 
+RUN apt add --no-cache wget 
+RUN apt add --no-cache build-base
 RUN wget https://github.com/joan2937/pigpio/archive/master.zip
 RUN unzip master.zip
 RUN cd pigpio-master
