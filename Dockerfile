@@ -5,7 +5,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
 RUN npm install
 
-FROM arm32v6/node:12-alpine
+FROM armhf/node:12-alpine
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 ADD package.json /app/package.json
