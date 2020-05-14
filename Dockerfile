@@ -15,7 +15,7 @@ ADD package-lock.json /app/package-lock.json
 ADD . /app
 
 COPY --from=builder app/node_modules app/node_modules
-COPY --from=builder dev/pigpio dev/pigpio
+COPY --from=builder /app/dev/pigpio dev/pigpio
 
 ENV PORT = 80
 EXPOSE 80
