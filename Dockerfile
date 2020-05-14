@@ -14,7 +14,8 @@ ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
 
-COPY --from=builder . .
+COPY --from=builder app/modules app/modules
+COPY --from=builder dev/pigpio dev/pigpio
 
 ENV PORT = 80
 EXPOSE 80
