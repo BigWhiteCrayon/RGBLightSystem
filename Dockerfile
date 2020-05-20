@@ -3,10 +3,6 @@ RUN mkdir /app
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json /app/package.json
-
-RUN git clone https://github.com/joan2937/pigpio
-RUN cd pigpio && make && make install
-
 RUN npm install
 
 FROM arm32v6/node:12-alpine
@@ -16,7 +12,6 @@ ADD package.json /app/package.json
 ADD package-lock.json /app/package-lock.json
 ADD . /app
 
-COPY --from=builder /usr/local usr/local
 COPY --from=builder app/node_modules app/node_modules
 
 ENV PORT = 80

@@ -14,6 +14,6 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "ip": "^1.1.5",
-    "pigpio": "^3.2.3"
+    "johnny-five": "^1.4.0"
   }
 }

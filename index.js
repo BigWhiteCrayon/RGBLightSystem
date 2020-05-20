@@ -2,12 +2,23 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ip = require('ip');
 const hbs = require('express-handlebars');
-const Gpio = require('pigpio').Gpio;
+const { Board, Led } = require("johnny-five");
+const board = new Board();
 
-let red = new Gpio(27, {mode:Gpio.OUTPUT});
-let green = new Gpio(17, {mode:Gpio.OUTPUT});
-let blue = new Gpio(22, {mode:Gpio.OUTPUT});
 
+
+BeforeUnloadEvent.on('ready', () => {
+    const led = new new led.RGB({
+        pins: {
+            red: 27,
+            green: 17, 
+            blue: 3
+        }
+    });
+
+    led.color('#FF0000');
+    led.blink(1000);
+})
 const app = express();
 const port = 80;
 
@@ -49,9 +60,6 @@ app.get('/', (req, res) => res.render('index', {postURL: '/setColor', button:[
 
 app.post('/setColor', (req, res) => {
     res.status(400);
-    red.pwmWrite(req.body.red);
-    green.pwmWrite(req.body.green);
-    blue.pwmWrite(req.body.blue);
 })
 
 app.listen(port, () => console.log(`listening at ${ip.address() + ':' + port}`));
