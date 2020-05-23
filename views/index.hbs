@@ -1,12 +1,5 @@
-{{#each button}}
-<button onclick="postColor({{this.colorData.red}},{{this.colorData.green}},{{this.colorData.blue}})">{{this.colorName}}</button>
-{{/each}}
-<script>
-    function postColor(red, green, blue) {
-        fetch('{{postURL}}', {
-            method: 'POST',
-            headers: {"Content-type": "application/json"},
-            body: JSON.stringify({red: red,green: green,blue: blue})
-        })
-    }
-</script>
+<form action="{{ postURL }}" method="post">
+    <label for="newColor">Pick Color</label>
+    <input type="color" id='newColor' name='newColor' value='#00fbff'>
+    <input type = "submit" value="submit">
+</form>

@@ -20,38 +20,13 @@ app.engine( 'hbs', hbs({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => res.render('index', {postURL: '/setColor', button:[
-    {
-        colorName: 'Red',
-        colorData: {
-            red: 255,
-            green: 0,
-            blue: 0
-        }
-    },
-    {
-        colorName: 'Green',
-        colorData: {
-            red: 0,
-            green: 255,
-            blue: 0
-        }
-    },
-    {
-        colorName: 'Blue',
-        colorData: {
-            red: 0,
-            green: 0,
-            blue: 255
-        }
-    }
-]}));
+app.get('/', (req, res) => res.render('index', {postURL: '/setColor'}));
 
 app.post('/setColor', (req, res) => {
     res.status(400);
-    red.pwmWrite(req.body.red);
-    green.pwmWrite(req.body.green);
-    blue.pwmWrite(req.body.blue);
+    red.pwmWrite(parseInt(req.body.newColor.substring(1,2), 8));
+    green.pwmWrite(parseInt(req.body.newColor.substring(3,5), 8));
+    blue.pwmWrite(parseInt(req.body.newColor.substring(5), 8));
 })
 
 app.listen(port, () => console.log(`listening at ${ip.address() + ':' + port}`));
