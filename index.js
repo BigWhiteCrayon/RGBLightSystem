@@ -24,7 +24,7 @@ app.get('/', (req, res) => res.render('index', {postURL: '/setColor'}));
 
 app.post('/setColor', (req, res) => {
     res.status(400);
-    red.pwmWrite(parseInt(req.body.newColor.substring(1,2), 16));
+    red.pwmWrite(parseInt(req.body.newColor.substring(1,3), 16));
     green.pwmWrite(parseInt(req.body.newColor.substring(3,5), 16));
     blue.pwmWrite(parseInt(req.body.newColor.substring(5), 16));
 })
