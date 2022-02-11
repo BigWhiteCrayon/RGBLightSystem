@@ -12,7 +12,7 @@
   "repository": "https://github.com/BigWhiteCrayon/RGBLightSystem",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
+    "express-handlebars": "^5.3.1",
     "ip": "^1.1.5",
     "pigpio": "^3.2.3"
   }
